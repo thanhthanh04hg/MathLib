@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/master.swiftdeps"
+  },
+  "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.derived/runner.swift": {
+    "dependencies": "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/runner.d",
+    "object": "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/runner.swift.o",
+    "swiftmodule": "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/runner.swiftdeps"
+  }
+}

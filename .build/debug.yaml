@@ -1,0 +1,112 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "MathLib-arm64-apple-macosx15.0-debug.module": ["<MathLib-arm64-apple-macosx15.0-debug.module>"]
+  "MathLibPackageTests-arm64-apple-macosx15.0-debug.module": ["<MathLibPackageTests-arm64-apple-macosx15.0-debug.module>"]
+  "MathLibPackageTests-arm64-apple-macosx15.0-debug.test": ["<MathLibPackageTests-arm64-apple-macosx15.0-debug.test>"]
+  "MathLibTests-arm64-apple-macosx15.0-debug.module": ["<MathLibTests-arm64-apple-macosx15.0-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<MathLib-arm64-apple-macosx15.0-debug.module>"]
+  "test": ["<MathLib-arm64-apple-macosx15.0-debug.module>","<MathLibPackageTests-arm64-apple-macosx15.0-debug.test>","<MathLibTests-arm64-apple-macosx15.0-debug.module>"]
+default: "main"
+nodes:
+  "/Users/thanhthanhdothi/Desktop/MathLib/Sources/MathLib/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/thanhthanhdothi/Desktop/MathLib/Tests/MathLibTests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLib.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/thanhthanhdothi/Desktop/MathLib/Sources/MathLib/MathLib.swift"]
+    outputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLib.build/sources"]
+    description: "Write auxiliary file /Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLib.build/sources"
+
+  "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.derived/runner.swift"]
+    outputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/sources"]
+    description: "Write auxiliary file /Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/sources"
+
+  "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.derived/runner.swift":
+    tool: test-entry-point-tool
+    inputs: []
+    outputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.derived/runner.swift"]
+
+  "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLib.build/MathLib.swift.o","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/runner.swift.o","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibTests.build/MathLibTests.swift.o"]
+    outputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.product/Objects.LinkFileList"
+
+  "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/thanhthanhdothi/Desktop/MathLib/Tests/MathLibTests/MathLibTests.swift"]
+    outputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibTests.build/sources"]
+    description: "Write auxiliary file /Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibTests.build/sources"
+
+  "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Library/Developer/CommandLineTools/usr/bin/swiftc"]
+    outputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+
+  "<MathLib-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLib.build/MathLib.swift.o","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLib.swiftmodule"]
+    outputs: ["<MathLib-arm64-apple-macosx15.0-debug.module>"]
+
+  "<MathLibPackageTests-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/runner.swift.o","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLibPackageTests.swiftmodule"]
+    outputs: ["<MathLibPackageTests-arm64-apple-macosx15.0-debug.module>"]
+
+  "<MathLibPackageTests-arm64-apple-macosx15.0-debug.test>":
+    tool: phony
+    inputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.xctest/Contents/MacOS/MathLibPackageTests"]
+    outputs: ["<MathLibPackageTests-arm64-apple-macosx15.0-debug.test>"]
+
+  "<MathLibTests-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibTests.build/MathLibTests.swift.o","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLibTests.swiftmodule"]
+    outputs: ["<MathLibTests-arm64-apple-macosx15.0-debug.module>"]
+
+  "C.MathLib-arm64-apple-macosx15.0-debug.module":
+    tool: shell
+    inputs: ["/Users/thanhthanhdothi/Desktop/MathLib/Sources/MathLib/MathLib.swift","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLib.build/sources"]
+    outputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLib.build/MathLib.swift.o","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLib.swiftmodule"]
+    description: "Compiling Swift Module 'MathLib' (1 sources)"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-module-name","MathLib","-emit-dependencies","-emit-module","-emit-module-path","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLib.swiftmodule","-output-file-map","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLib.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLib.build/sources","-I","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx10.13","-enable-batch-mode","-index-store-path","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j10","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLib.build/MathLib-Swift.h","-color-diagnostics","-swift-version","5","-F","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g","-Xcc","-isysroot","-Xcc","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-Xcc","-fPIC","-Xcc","-g","-package-name","mathlib"]
+
+  "C.MathLibPackageTests-arm64-apple-macosx15.0-debug.module":
+    tool: shell
+    inputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.derived/runner.swift","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLibTests.swiftmodule","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/sources"]
+    outputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/runner.swift.o","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLibPackageTests.swiftmodule"]
+    description: "Compiling Swift Module 'MathLibPackageTests' (1 sources)"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-module-name","MathLibPackageTests","-emit-dependencies","-emit-module","-emit-module-path","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLibPackageTests.swiftmodule","-output-file-map","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/sources","-I","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx10.13","-enable-batch-mode","-index-store-path","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j10","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/MathLibPackageTests-Swift.h","-color-diagnostics","-F","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g","-Xcc","-isysroot","-Xcc","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-Xcc","-fPIC","-Xcc","-g","-package-name","mathlib"]
+
+  "C.MathLibPackageTests-arm64-apple-macosx15.0-debug.test":
+    tool: shell
+    inputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLib.build/MathLib.swift.o","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/runner.swift.o","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibTests.build/MathLibTests.swift.o","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.product/Objects.LinkFileList"]
+    outputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.xctest/Contents/MacOS/MathLibPackageTests"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/MathLibPackageTests.xctest/Contents/MacOS/MathLibPackageTests"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-L","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug","-o","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.xctest/Contents/MacOS/MathLibPackageTests","-module-name","MathLibPackageTests","-Xlinker","-no_warn_duplicate_libraries","-Xlinker","-bundle","-Xlinker","-rpath","-Xlinker","@loader_path/../../../","@/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Library/Developer/CommandLineTools/usr/lib/swift-5.5/macosx","-target","arm64-apple-macosx10.13","-Xlinker","-add_ast_path","-Xlinker","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLib.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLibPackageTests.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLibTests.swiftmodule","-F","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g","-Xlinker","-rpath","-Xlinker","/Library/Developer/CommandLineTools/Library/Developer/Frameworks"]
+
+  "C.MathLibTests-arm64-apple-macosx15.0-debug.module":
+    tool: shell
+    inputs: ["/Users/thanhthanhdothi/Desktop/MathLib/Tests/MathLibTests/MathLibTests.swift","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLib.swiftmodule","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibTests.build/sources"]
+    outputs: ["/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibTests.build/MathLibTests.swift.o","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLibTests.swiftmodule"]
+    description: "Compiling Swift Module 'MathLibTests' (1 sources)"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-module-name","MathLibTests","-emit-dependencies","-emit-module","-emit-module-path","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules/MathLibTests.swiftmodule","-output-file-map","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibTests.build/sources","-I","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx10.13","-enable-batch-mode","-index-store-path","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j10","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-color-diagnostics","-swift-version","5","-F","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g","-Xcc","-isysroot","-Xcc","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-Xcc","-fPIC","-Xcc","-g","-package-name","mathlib"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/thanhthanhdothi/Desktop/MathLib/Sources/MathLib/","/Users/thanhthanhdothi/Desktop/MathLib/Tests/MathLibTests/","/Users/thanhthanhdothi/Desktop/MathLib/Package.swift","/Users/thanhthanhdothi/Desktop/MathLib/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

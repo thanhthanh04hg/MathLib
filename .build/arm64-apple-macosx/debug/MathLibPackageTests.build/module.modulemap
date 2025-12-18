@@ -1,0 +1,4 @@
+module MathLibPackageTests {
+    header "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLibPackageTests.build/MathLibPackageTests-Swift.h"
+    requires objc
+}

@@ -1,0 +1,4 @@
+module MathLib {
+    header "/Users/thanhthanhdothi/Desktop/MathLib/.build/arm64-apple-macosx/debug/MathLib.build/MathLib-Swift.h"
+    requires objc
+}
