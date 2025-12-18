@@ -9,4 +9,13 @@ public struct MathLib {
     public static func add<T: Numeric>(_ a: T, _ b: T) -> T {
         return a + b
     }
+    
+    /// Multiplies two values of the same numeric type
+    /// - Parameters:
+    ///   - a: The first value
+    ///   - b: The second value
+    /// - Returns: The product of a and b
+    public static func multiply<T: Numeric>(_ a: T, _ b: T) -> T {
+        return a * b
+    }
 }

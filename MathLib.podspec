@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MathLib'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A Swift library providing generic math operations.'
   s.description      = <<-DESC
     MathLib is a lightweight Swift library that provides generic math functions.
