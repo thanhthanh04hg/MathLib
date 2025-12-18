@@ -6,11 +6,10 @@ Pod::Spec.new do |s|
     MathLib is a lightweight Swift library that provides generic math functions.
     It includes an add function that works with any Numeric type (Int, Double, Float, etc.).
   DESC
-  s.homepage         = 'https://github.com/YOUR_USERNAME/MathLib'
+  s.homepage         = 'https://github.com/thanhthanh04hg/MathLib'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Your Name' => 'your@email.com' }
-  s.source           = { :git => 'https://github.com/YOUR_USERNAME/MathLib.git', :tag => s.version.to_s }
-  
+  s.author           = { 'Thanh Thanh Do Thi' => 'thanhthanh04hg@gmail.com' }
+  s.source           = { :git => 'https://github.com/thanhthanh04hg/MathLib.git', :tag => s.version.to_s }
   s.ios.deployment_target = '12.0'
   s.swift_versions = ['5.0', '5.5', '5.9']
   
